@@ -1,0 +1,22 @@
+Delivered-To: victim@company.com
+Received: by 2002:a05:6e10:14c1:0:0:0:0 with SMTP id a1csp1234567;
+        Tue, 30 May 2024 14:22:00 -0700 (PDT)
+X-Received: by 2002:a05:6e10:14c1:: with SMTP id a1mr98765432;
+        Tue, 30 May 2024 14:21:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622390519; cv=none;
+        d=google.com; s=arc-20201008;
+        b=abc123...
+Return-Path: <security@vetscommunityconnections.org>
+Received: from vetscommunityconnections.org (vetscommunityconnections.org [143.14.107.169])
+        by mx.google.com with ESMTPS id xyz987;
+        Tue, 30 May 2024 14:21:59 -0700 (PDT)
+Received-SPF: fail (google.com: domain of vetscommunityconnections.org does not designate 143.14.107.169 as permitted sender)
+Authentication-Results: mx.google.com;
+       spf=fail (google.com: domain of vetscommunityconnections.org does not designate 143.14.107.169 as permitted sender)
+       dmarc=fail (p=REJECT sp=REJECT dis=NONE) header.from=vetscommunityconnections.org
+From: "PayPal Security" <security@vetscommunityconnections.org>
+To: "User" <victim@company.com>
+Subject: Urgent: Your PayPal Account Has Been Limited
+Date: Tue, 30 May 2024 14:22:00 -0700
+Message-ID: <1234567890@vetscommunityconnections.org>
+Content-Type: text/html; charset="utf-8"

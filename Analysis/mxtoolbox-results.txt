@@ -1,0 +1,27 @@
+MXTOOLBOX EMAIL HEADER ANALYSIS
+================================
+Analysis Date: 2026-01-30
+Email: security@vetscommunityconnections.org
+
+RESULTS:
+- SPF: FAIL ❌
+  Reason: IP 143.14.107.169 not authorized by vetscommunityconnections.org
+
+- DKIM: NOT SIGNED ❌
+  No DKIM signature present
+
+- DMARC: FAIL ❌
+  Policy: p=reject, sp=reject
+  Alignment failed
+
+- IP REPUTATION: 143.14.107.169
+  Status: Suspicious
+  Blacklists: 2/75 lists
+
+- DOMAIN AGE: vetscommunityconnections.org
+  Status: Recently registered (< 30 days)
+  Risk: High
+
+CONCLUSION:
+Email is confirmed spoofed. Authentication failures across SPF, DKIM, DMARC.
+Sender infrastructure is suspicious (recent domain, blacklisted IP).

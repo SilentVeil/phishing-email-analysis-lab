@@ -1,0 +1,28 @@
+=== PHISHING CAMPAIGN IOCs ===
+Campaign: PayPal Credential Phishing
+Date: 2026-01-30
+
+DOMAINS:
+- vetscommunityconnections.org (malicious - 8/94 VT)
+
+IP ADDRESSES:
+- 143.14.107.169 (malicious - 9/94 VT)
+
+URLS:
+- http://vetscommunityconnections.org/phish.html
+
+EMAIL ADDRESSES:
+- security@vetscommunityconnections.org
+
+HASHES:
+- N/A (no attachment)
+
+THREAT INTELLIGENCE SOURCES:
+- AlienVault OTX: Initial discovery
+- VirusTotal: 9/94 vendors flag IP as malicious
+- AbuseIPDB: 85% confidence score, bulletproof hosting
+- MXToolbox: SPF/DMARC failures confirmed
+
+MITRE ATT&CK:
+- T1566.002: Spearphishing Link
+- T1555.003: Credentials from Web Portal
