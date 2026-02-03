@@ -1,7 +1,7 @@
 # 🔍 Phishing Investigation Report - Case #2026-001
 
 ## 📋 Executive Summary
-**Date:** 2026-01-30  
+**Date:** 2024-05-30
 **Threat:** PayPal credential phishing campaign  
 **Target:** Organization employees  
 **IOCs:** vetscommunityconnections.org, 143.14.107.169  
@@ -23,36 +23,49 @@
 - DMARC: FAIL ❌ (policy: REJECT)
 - IP Reputation: 143.14.107.169 - Blacklisted
 
-![Header Analysis](../screenshots/mxtoolbox-analysis.png)
+![Header Analysis](../screenshot/mxtoolbox-analysis.png)
 
 ### 2. IOC Identification & Validation
 **Malicious Domain:** vetscommunityconnections.org
 - Source: AlienVault OTX threat feed
 - Age: Recently registered (highly suspicious)
 - Purpose: Phishing landing page hosting
+- VirusTotal Detection: **8/94 security vendors flag as malicious**
 
 **Malicious IP:** 143.14.107.169
-- Blacklist status: Listed in 3+ security feeds
-- Associated campaigns: Multiple phishing operations
-- Geographic location: High-risk region
+- VirusTotal Detection: **9/94 security vendors flag as malicious**
+- Detecting Vendors: ESET-NOD32, Fortinet, BitDefender
+- Categories: Phishing, Malicious, Suspicious
+- Last Analysis: 2024-05-30
 
 **Phishing URL:** http://vetscommunityconnections.org/phish.html
 - Type: Credential harvesting form
-- SSL: None (HTTP only - low sophistication)
+- Protocol: HTTP only (no SSL/TLS)
 - Content: PayPal login page imitation
 
+
 ### 3. Threat Intelligence Correlation
-**VirusTotal Detection:**
-- Domain: vetscommunityconnections.org → 8/94 vendors flag as malicious
-- IP: 143.14.107.169 → 12/89 vendors flag as malicious
-- Categories: Phishing, Fraud, Social Engineering
+**VirusTotal Analysis:**
+- IP 143.14.107.169: **9/94 security vendors flag as malicious**
+- Domain vetscommunityconnections.org: **8/94 vendors flag as malicious**
+- Historical Data: First seen 30 days ago, consistent malicious activity
 
-**AbuseIPDB Results:**
-- Confidence Score: 85% (High confidence malicious)
-- Total Reports: 22 abuse reports
-- Last Report: Within 7 days
+**AbuseIPDB Context:**
+- ISP: CYBERVERSE LLC (bulletproof hosting provider)
+- Location: Tokyo, Japan (common threat actor region)
+- Usage Type: Fixed Line ISP
+- Database Status: No historical abuse reports (recently deployed infrastructure)
 
-![Threat Intel Validation](../screenshots/virustotal-results.png)
+![VirusTotal Detection](../screenshot/virustotal-ip.png)
+![Network Context](../screenshot/abuseipdb-results.png)
+
+## 📊 MITRE ATT&CK Mapping
+| Tactic | Technique | ID | Description |
+|--------|-----------|----|-------------|
+| Reconnaissance | Gather Victim Org Info | T1589.001 | Phishing for Information |
+| Initial Access | Phishing | T1566.002 | Spearphishing Link |
+| Credential Access | Credentials from Password Stores | T1555.003 | Web Portal Capture |
+| Defense Evasion | Masquerading | T1036.005 | Match Legitimate Name |
 
 ## 🛡️ Response Actions
 
@@ -77,13 +90,6 @@
 2. Implement stricter DMARC policies (p=reject)
 3. User awareness training on phishing indicators
 4. Deploy URL rewriting in email gateway
-
-## 📊 MITRE ATT&CK Mapping
-| Tactic | Technique | ID | Description |
-|--------|-----------|----|-------------|
-| Initial Access | Phishing | T1566.002 | Spearphishing Link |
-| Credential Access | Credentials from Password Stores | T1555.003 | Web Portal Capture |
-| Defense Evasion | Masquerading | T1036.005 | Match Legitimate Name |
 
 ## 🎓 Investigation Findings
 1. **Attack Sophistication:** Low-Medium
@@ -128,14 +134,5 @@
 **Time to Resolution:** 2 hours from detection to containment  
 
 *This investigation demonstrates proactive threat hunting and rapid incident response capabilities.*
-
----
-
-## 📁 Supporting Evidence
-- [Email Headers](../analysis/email-headers.txt)
-- [IOC List](../analysis/iocs.txt)
-- [MXToolbox Results](../analysis/mxtoolbox-results.txt)
-- [Screenshots](../screenshots/)
-
 ---
 **Confidentiality:** This report contains sensitive security information. Distribution restricted to authorized personnel only.
