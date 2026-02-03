@@ -1,0 +1,32 @@
+Delivered-To: ozania@company.com
+Received: by 2002:a05:6e10:14c1:0:0:0:0 with SMTP id a1csp1234567;
+        Tue, 30 May 2024 14:22:00 -0700 (PDT)
+X-Received: by 2002:a05:6e10:14c1:: with SMTP id a1mr98765432;
+        Tue, 30 May 2024 14:21:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622390519; cv=none;
+        d=google.com; s=arc-20201008;
+        b=abc123...
+Return-Path: <security@paypa1-security.com>
+Received: from mailserver.paypa1-security.com (mailserver.paypa1-security.com [185.153.196.42])
+        by mx.google.com with ESMTPS id xyz987;
+        Tue, 30 May 2024 14:21:59 -0700 (PDT)
+Received-SPF: fail (google.com: domain of paypa1-security.com does not designate 185.153.196.42 as permitted sender)
+Authentication-Results: mx.google.com;
+       spf=fail (google.com: domain of paypa1-security.com does not designate 185.153.196.42 as permitted sender)
+       dmarc=fail (p=REJECT sp=REJECT dis=NONE) header.from=paypa1-security.com
+From: "PayPal Security" <security@paypa1-security.com>
+To: "User" <ozania@company.com>
+Subject: Urgent: Your PayPal Account Has Been Limited
+Date: Tue, 30 May 2024 14:22:00 -0700
+Message-ID: <1234567890@paypa1-security.com>
+Content-Type: text/html; charset="utf-8"
+
+<html>
+<body>
+<p>Dear Customer,</p>
+<p>We detected unusual activity in your PayPal account. To avoid permanent limitation, verify your account now:</p>
+<p><a href="http://paypa1-verify-security.com/login.html">Click here to verify your account</a></p>
+<p>This link will expire in 24 hours.</p>
+<p>PayPal Security Team</p>
+</body>
+</html>
